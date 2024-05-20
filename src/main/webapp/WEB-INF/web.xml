@@ -3,7 +3,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <context-param>
     <param-name>branch</param-name>
-    <param-value>Yangon;Mawlamyine;Mandalay;Pathein;Taung-gyi;Myitkyinar</param-value>
+    <param-value>Insein;Hledan;Nokkalapa;Pathein;Taung-gyi;Myitkyinar</param-value>
   </context-param>
   <context-param>
     <param-name>username</param-name>
@@ -13,34 +13,4 @@
     <param-name>password</param-name>
     <param-value>OurSchool@dmin</param-value>
   </context-param>
-  <servlet>
-    <description></description>
-    <display-name>UserLoginServlet</display-name>
-    <servlet-name>UserLoginServlet</servlet-name>
-    <servlet-class>com.app.controller.UserLoginServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserLoginServlet</servlet-name>
-    <url-pattern>/UserLoginServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>AdminLoginServlet</display-name>
-    <servlet-name>AdminLoginServlet</servlet-name>
-    <servlet-class>com.app.controller.AdminLoginServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AdminLoginServlet</servlet-name>
-    <url-pattern>/AdminLoginServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>AccountantServlet</display-name>
-    <servlet-name>AccountantServlet</servlet-name>
-    <servlet-class>com.app.controller.AccountantServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AccountantServlet</servlet-name>
-    <url-pattern>/AccountantServlet</url-pattern>
-  </servlet-mapping>
 </web-app>

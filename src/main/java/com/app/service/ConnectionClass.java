@@ -10,7 +10,7 @@ public class ConnectionClass {
 	{
 		Connection con = null;
 		try {
-			Class.forName("com.jdbc.mysql.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/payment_billing", "root", "admin");
 		} catch (ClassNotFoundException e) {
 			System.out.println("Driver loading: "+ e.getMessage());

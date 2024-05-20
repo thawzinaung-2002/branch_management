@@ -29,7 +29,7 @@ public class AdminLoginServlet extends HttpServlet {
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		
+
 		String sys_username = request.getServletContext().getInitParameter("username");
 		String sys_password = request.getServletContext().getInitParameter("password");
 		
@@ -44,22 +44,14 @@ public class AdminLoginServlet extends HttpServlet {
 			else
 			{
 				request.setAttribute("msg", "Please fill the correct data!");
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				request.getRequestDispatcher("admin-login-form.jsp").forward(request, response);
 			}
 		}
 		else
 		{
 			request.setAttribute("msg", "Please fill the fields!");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("admin-login-form.jsp").forward(request, response);
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
