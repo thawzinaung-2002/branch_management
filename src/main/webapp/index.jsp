@@ -12,6 +12,9 @@
 </head>
 <body>
 
+	<c:set var="username" scope="application" value="${username } " />
+	<c:remove var="username" scope="application"/>
+
     <header class="text-center m-2">
         <h3>Payment Billing System</h3>
     </header>
@@ -24,7 +27,12 @@
             	</a>
         	</div>
        </div>
-        <form action="userLogin" class="container mt-5">
+       <c:if test="${msg!= null }">
+       	<div class="text-center text-danger">
+       		<c:out value="${msg }" />
+       	</div>
+       </c:if>
+        <form action="accLogin" class="container mt-5">
             <div class="col-6 m-auto">
             	<div class="mb-3">
 	            <label for="branch" class="form-label">Branch</label>

@@ -58,7 +58,7 @@ public class AccountantServlet extends HttpServlet {
 		boolean dobTest = dob!=null && dob.length() > 0;
 		boolean joinTest = join_date!=null && join_date.length()>0;
 		
-		if(salary != null && salary.matches("\\d+") && branchTest && nameTest && passTest && dobTest && joinTest)
+		if(salary != null && salary.matches("[0-9]{1,13}(\\.[0-9]*)?") && branchTest && nameTest && passTest && dobTest && joinTest)
 		{
 			salaryDob = Double.valueOf(salary);
 			
@@ -78,7 +78,18 @@ public class AccountantServlet extends HttpServlet {
 			req.setUsername(acc.getUsername());
 			
 			AccountantService service = new AccountantService();
-			int result = service.addOne(req);
+			String id = request.getParameter("id");
+			int result = 0;
+			if(id!=null)
+			{
+				int acc_id = Integer.valueOf(id);
+				result = service.addOne(req, acc_id);
+			}
+			else
+			{
+				result = service.addOne(req);
+			}
+			
 			if(result > 0)
 			{
 				doGet(request, response);
@@ -86,8 +97,8 @@ public class AccountantServlet extends HttpServlet {
 		}
 		else
 		{
-			request.getSession().setAttribute("msg", "Please fill the fields right data!");
-			response.sendRedirect("accountant-create.jsp");
+			request.setAttribute("msg", "Please fill the fields right data!");
+			request.getRequestDispatcher("accountant-create.jsp").forward(request, response);
 		}
 		
 	
