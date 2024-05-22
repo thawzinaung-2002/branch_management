@@ -19,8 +19,8 @@
 
 	<c:if test="${accountants.size() > 0 }" >
 		<div class="container col-10 m-auto">
-		<h3 class="text-center m-3">Accountant List</h3>
-		<a href="logout" class="btn btn-danger">Log out</a>
+		<a href="logout" class="btn btn-danger my-3">Log out</a>
+		<h3 class="my-3">Accountant List</h3>
 		<table class="mt-4 table table-striped">
 			<tr>
 				<th>Branch</th>
@@ -60,9 +60,55 @@
 		</table>
 		</div>
 	</c:if>
-	<div class="col-10 m-auto">
+	<div class="col-10 m-auto my-3">
 		<a href="accountant-create.jsp" >Create Accountant</a>
 	</div>
+	
+	<c:if test="${students.size() > 0 }">
+		<div class="col-10 m-auto">
+		<h2 class="my-3">Student List</h2>
+		<table class="border table-bordered table table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Course</th>
+			<th>Mobile</th>
+			<th>Father</th>
+			<th>Mother</th>
+			<th>Qualification</th>
+			<th>Date of Birth</th>
+			<th>Branch</th>
+		</tr>
+		<c:forEach items="${students }" var="student">
+			<tr>
+				<td>
+					<c:out value="${student.name }" />
+				</td>
+				<td>
+					<c:out value="${student.course }" />
+				</td>
+				<td>
+					<c:out value="${student.mobile }" />
+				</td>
+				<td>
+					<c:out value="${student.father }" />
+				</td>
+				<td>
+					<c:out value="${student.mother }" />
+				</td>
+				<td>
+					<c:out value="${student.qualification }" />
+				</td>
+				<td>
+					<c:out value="${student.dob }" />
+				</td>
+				<td>
+					<c:out value="${student.branch }" />
+				</td>
+			</tr>
+		</c:forEach>
+	</table>
+	</div>
+	</c:if>
 	
 </body>
 </html>

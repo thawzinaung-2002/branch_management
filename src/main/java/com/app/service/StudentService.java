@@ -127,4 +127,31 @@ public class StudentService {
 		return result;
 	}
 
+	public List<StudentResponseDTO> getAll() {
+		Connection con = ConnectionClass.getConnection();
+		List<StudentResponseDTO> ls = new ArrayList<>();
+		try {
+			PreparedStatement ps = con.prepareStatement("select s.id,course,dob,father,mother,mobile,s.name name,qualification,b.name branch from student s left join branch b on s.branch_id=b.id");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				StudentResponseDTO res = new StudentResponseDTO();
+				res.setId(rs.getInt("id"));
+				res.setCourse(rs.getString("course"));
+				res.setDob(rs.getString("dob"));
+				res.setFather(rs.getString("father"));
+				res.setMobile(rs.getString("mobile"));
+				res.setMother(rs.getString("mother"));
+				res.setName(rs.getString("name"));
+				res.setQualification(rs.getString("qualification"));
+				res.setBranch(rs.getString("branch"));
+				ls.add(res);
+			}
+		} catch (SQLException e) {
+			System.out.println("get students : "+ e.getMessage());
+		}
+		
+		return ls;
+	}
+
 }

@@ -3,7 +3,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <context-param>
     <param-name>branch</param-name>
-    <param-value>Insein;Hledan;Nokkalapa;Pathein;Taung-gyi;Myitkyinar</param-value>
+    <param-value>Insein;Hledan;Nokkalapa;Pathein;Taunggyi;Myintkyinar</param-value>
   </context-param>
   <context-param>
     <param-name>username</param-name>

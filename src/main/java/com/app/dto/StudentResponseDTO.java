@@ -13,4 +13,5 @@ public class StudentResponseDTO {
 		private String mother;
 		private String qualification;
 		private String dob;
+		private String branch;
 }

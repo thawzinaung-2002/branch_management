@@ -57,10 +57,9 @@ public class AccountantLoginServlet extends HttpServlet {
 			}
 			else
 			{
-				request.setAttribute("msg", "Please fill the correct data!");
+				request.setAttribute("msg", "User not found!");
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
-			
 		}
 		else
 		{

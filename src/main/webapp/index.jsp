@@ -14,6 +14,9 @@
 
 	<c:set var="username" scope="application" value="${username } " />
 	<c:remove var="username" scope="application"/>
+	
+	<c:set var="accountant" scope="application" value="${accountant } " />
+	<c:remove var="accountant" scope="application"/>
 
     <header class="text-center m-2">
         <h3>Payment Billing System</h3>

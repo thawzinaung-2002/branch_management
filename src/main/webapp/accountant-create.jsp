@@ -95,8 +95,8 @@
 					class="col-5 m-auto border p-3">
 					<div class="container">
 						<div class="m-1">
-							<label for="branch" class="form-label">Branch</label> <select
-								id="branch" name="branch" class="form-control">
+							<label for="branch" class="form-label">Branch</label> 
+							<select id="branch" name="branch" class="form-control">
 								<option>Select a Branch</option>
 								<c:forTokens var="tempItem" items="${initParam['branch'] }"
 									delims=";">

@@ -10,8 +10,10 @@ import java.util.List;
 
 import com.app.dto.AccountantRequestDTO;
 import com.app.dto.AccountantResponseDTO;
+import com.app.dto.StudentResponseDTO;
 import com.app.model.Accountant;
 import com.app.service.AccountantService;
+import com.app.service.StudentService;
 
 /**
  * Servlet implementation class AccountantServlet
@@ -33,11 +35,14 @@ public class AccountantServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		StudentService s_service = new StudentService();
+		List<StudentResponseDTO> res = s_service.getAll();
+		request.getSession().setAttribute("students", res);
+		
 		AccountantService service = new AccountantService();
 		List<AccountantResponseDTO> acc = service.getAll();
 		request.getSession().setAttribute("accountants", acc);
 		request.getRequestDispatcher("accountant-list.jsp").forward(request, response);
-		
 	}
 
 	/**
@@ -68,14 +73,17 @@ public class AccountantServlet extends HttpServlet {
 			acc.setJoin_date(join_date);
 			acc.setPassword(password);
 			acc.setSalary(salaryDob);
+			acc.setBranch(branch);
 			
 			AccountantRequestDTO req=new AccountantRequestDTO();
-			req.setBranch(branch);
+			req.setBranch(acc.getBranch());
 			req.setDob(acc.getDob());
 			req.setJoin_date(acc.getJoin_date());
 			req.setPassword(acc.getPassword());
 			req.setSalary(acc.getSalary());
 			req.setUsername(acc.getUsername());
+			
+//			System.out.println(req.toString());
 			
 			AccountantService service = new AccountantService();
 			String id = request.getParameter("id");

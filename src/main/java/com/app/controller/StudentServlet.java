@@ -35,7 +35,7 @@ public class StudentServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		StudentService service = new StudentService();
-		AccountantResponseDTO acc = (AccountantResponseDTO) request.getServletContext().getAttribute("username");
+		AccountantResponseDTO acc = (AccountantResponseDTO) request.getServletContext().getAttribute("accountant");
 		if(acc != null)
 		{
 			List<StudentResponseDTO> res = service.getAll(acc.getBranch());
@@ -61,7 +61,7 @@ public class StudentServlet extends HttpServlet {
 		String mother = request.getParameter("mother");
 		String dob=request.getParameter("dob");
 		String qualification=request.getParameter("qualification");
-		AccountantResponseDTO res =(AccountantResponseDTO)request.getServletContext().getAttribute("username");
+		AccountantResponseDTO res =(AccountantResponseDTO)request.getServletContext().getAttribute("accountant");
 		String branch=res.getBranch();
 		
 		boolean branchTest = branch !=null && !branch.equals("Select a Branch");
@@ -103,7 +103,6 @@ public class StudentServlet extends HttpServlet {
 				int result = service.addStudent(req, stu_id);
 				if(result > 0)
 				{
-					request.getSession().setAttribute("students", null);
 					doGet(request, response);
 				}
 				

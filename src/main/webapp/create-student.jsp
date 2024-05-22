@@ -13,6 +13,10 @@
 </head>
 <body>
 
+	<c:if test="${applicationScope.accountant == null }">
+		<c:redirect url="index.jsp" />
+	</c:if>
+
 	<div class="container">
 		<h3 class="text-center">Student Registration</h3>
 			<c:if test="${msg != null }">

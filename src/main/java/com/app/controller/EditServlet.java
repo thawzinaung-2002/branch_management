@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import com.app.dto.AccountantResponseDTO;
 import com.app.dto.StudentResponseDTO;
+import com.app.model.Accountant;
 import com.app.model.Student;
 import com.app.service.AccountantService;
 import com.app.service.StudentService;
@@ -43,7 +44,16 @@ public class EditServlet extends HttpServlet {
 			AccountantResponseDTO res = ser.getOne(id);
 			if(res != null)
 			{
-				request.setAttribute("accountant", res);
+				Accountant acc = new Accountant();
+				acc.setDob(res.getDob());
+				acc.setJoin_date(res.getJoin_date());
+				acc.setPassword(res.getPassword());
+				acc.setSalary(res.getSalary());
+				acc.setUsername(res.getUsername());
+				acc.setBranch(res.getBranch());
+				acc.setId(res.getId());
+	
+				request.setAttribute("accountant", acc);
 				request.getRequestDispatcher("accountant-create.jsp").forward(request, response);
 			}
 		}
@@ -65,10 +75,6 @@ public class EditServlet extends HttpServlet {
 				
 				request.setAttribute("student", s);
 				request.getRequestDispatcher("update-student.jsp").forward(request, response);
-			}
-			else
-			{
-				response.sendRedirect("accountant-home.jsp");
 			}
 		}
 		}

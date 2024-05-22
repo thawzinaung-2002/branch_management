@@ -44,7 +44,6 @@ public class DeleteServlet extends HttpServlet {
 			int result = service.deleteOne(id);
 			if(result > 0)
 			{
-				request.getSession().invalidate();
 				List<AccountantResponseDTO> acc = service.getAll();
 				request.getSession().setAttribute("accountants", acc);
 				response.sendRedirect("accountant-list.jsp");	
@@ -56,8 +55,7 @@ public class DeleteServlet extends HttpServlet {
 			int result = service.deleteOne(id);
 			if(result > 0)
 			{
-				request.getSession().invalidate();
-				AccountantResponseDTO res = (AccountantResponseDTO) request.getServletContext().getAttribute("username");
+				AccountantResponseDTO res = (AccountantResponseDTO) request.getServletContext().getAttribute("accountant");
 				List<StudentResponseDTO> studentList = service.getAll(res.getBranch());
 				request.getSession().setAttribute("students", studentList);
 				response.sendRedirect("accountant-home.jsp");
