@@ -13,14 +13,4 @@
     <param-name>password</param-name>
     <param-value>OurSchool@dmin</param-value>
   </context-param>
-  <servlet>
-    <description></description>
-    <display-name>StudentServlet</display-name>
-    <servlet-name>StudentServlet</servlet-name>
-    <servlet-class>com.app.controller.StudentServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>StudentServlet</servlet-name>
-    <url-pattern>/StudentServlet</url-pattern>
-  </servlet-mapping>
 </web-app>

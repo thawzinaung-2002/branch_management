@@ -52,8 +52,8 @@
 						<c:out value="${acc.salary }" />
 					</td>
 					<td>
-						<a href="accountantEdit?id=${acc.id }">Edit</a> |
-						<a href="accountantDelete?id=${acc.id }">Delete</a>
+						<a href="edit?type=accountant&id=${acc.id }">Edit</a> |
+						<a href="delete?type=accountant&id=${acc.id }">Delete</a>
 					</td>
 				</tr>
 			</c:forEach>

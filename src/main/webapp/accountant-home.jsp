@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
 </head>
 <body>
-	<c:if test="${applicationScope.username == null }">
+	<c:if test="${applicationScope.accountant == null }">
 		<c:redirect url="index.jsp" />
 	</c:if>
 	
@@ -24,7 +24,8 @@
 	</c:if>
 	
 	<div class="col-8 m-auto">
-		<a href="create-student.jsp">Create Student</a>
+		<a href="create-student.jsp" class="btn btn-outline-success">Create Student</a>
+		<a href="logout" class="btn btn-outline-dark m-5">Log out</a>
 	</div>
 	
 	

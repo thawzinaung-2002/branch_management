@@ -52,7 +52,7 @@ public class AccountantLoginServlet extends HttpServlet {
 			AccountantResponseDTO res = service.checkAccountant(req);
 			if(res != null)
 			{
-				request.getServletContext().setAttribute("username", res);
+				request.getServletContext().setAttribute("accountant", res);
 				response.sendRedirect("student");
 			}
 			else

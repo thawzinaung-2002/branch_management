@@ -11,6 +11,10 @@
 </head>
 <body>
 
+	<c:if test="${applicationScope.accountant == null }">
+		<c:redirect url="index.jsp" />
+	</c:if>
+
 	<table class="border table-bordered table table-striped">
 		<tr>
 			<th>Name</th>
@@ -46,8 +50,8 @@
 					<c:out value="${student.dob }" />
 				</td>
 				<td>
-					<a href="">Edit</a> |
-					<a href="">Delete</a>
+					<a href="edit?type=student&id=${student.id }">Edit</a> |
+					<a href="delete?type=student&id=${student.id }">Delete</a>
 				</td>
 			</tr>
 		</c:forEach>

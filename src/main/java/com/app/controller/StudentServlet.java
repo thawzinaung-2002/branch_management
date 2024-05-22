@@ -35,9 +35,17 @@ public class StudentServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		StudentService service = new StudentService();
-		List<StudentResponseDTO> res = service.getAll();
-		request.getSession().setAttribute("students", res);
-		response.sendRedirect("accountant-home.jsp");
+		AccountantResponseDTO acc = (AccountantResponseDTO) request.getServletContext().getAttribute("username");
+		if(acc != null)
+		{
+			List<StudentResponseDTO> res = service.getAll(acc.getBranch());
+			request.getSession().setAttribute("students", res);
+			response.sendRedirect("accountant-home.jsp");
+		}
+		else
+		{
+			response.sendRedirect("index.jsp");
+		}
 		
 	}
 
@@ -87,10 +95,26 @@ public class StudentServlet extends HttpServlet {
 			req.setQualification(s.getQualification());
 			
 			StudentService service = new StudentService();
-			int result = service.addStudent(req);
-			if(result > 0)
+			String id = request.getParameter("id");
+			
+			if(id!= null) // for update
 			{
-				doGet(request, response);
+				int stu_id = Integer.valueOf(id);
+				int result = service.addStudent(req, stu_id);
+				if(result > 0)
+				{
+					request.getSession().setAttribute("students", null);
+					doGet(request, response);
+				}
+				
+			}
+			else //for insert
+			{
+				int result = service.addStudent(req);
+				if(result > 0)
+				{
+					doGet(request, response);
+				}	
 			}
 		}
 		else

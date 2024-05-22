@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class StudentResponseDTO {
 	
+		private int id;
 		private String name;
 		private String course;
 		private String mobile;
@@ -12,5 +13,4 @@ public class StudentResponseDTO {
 		private String mother;
 		private String qualification;
 		private String dob;
-	
 }
