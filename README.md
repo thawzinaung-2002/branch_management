@@ -1,8 +1,8 @@
 # Project Structure
- Admin can create, edit and delete Accountant for Each branch and can view All students
- Admin username, password is stored in web.xml
- Accountant in each branch can create, edit and delete Students for his/her branch
- index.jsp is project start page
+ Admin can create, edit and delete Accountant for Each branch and can view All students.
+ Admin username, password is stored in web.xml.
+ Accountant in each branch can create, edit and delete Students for his/her branch.
+ index.jsp is project start page.
 
 # Technologies
 * JDK 21
